@@ -1,1 +1,24 @@
-<!--index.wxml-->
+<view class='nav-bar'>
+  <image class='nav-icon' src='/images/nav-icon.png'></image>
+  <view class='nav-text'>快读·咨询</view>
+</view>
+
+<view class='news-list'>
+          <view class='newsCategory-text1'>国内</view>
+          <view class='newsCategory-text2'>国际</view>
+          <view class='newsCategory-text2'>财经</view>
+          <view class='newsCategory-text3'>娱乐</view>
+          <view class='newsCategory-text4'>军事</view>   
+          <view class='newsCategory-text5'>体育</view>
+          <view class='newsCategory-text6'>其他</view>
+</view>
+<view class='hotNews-wrapper'>
+  <image class="hotNews-bg" src='/images/hotNews.png' mode='scaleToFill'></image>
+  <image class='hotNews-icon' src='/images/hot-icon-red.png' mode='aspectFit'></image>
+  <view class='hotNews-text'>观湖村陈先生：上北大车票是乡亲凑得，赠别墅遇尴尬两年没回乡</view>
+  <view class='hotNewsTips'>
+    <view class='hotNewsTipsOrigin-text'>上旅游新闻</view>
+    <view class='hotNewsTipsTime-text'>10:22</view>
+
+  </view>
+</view>

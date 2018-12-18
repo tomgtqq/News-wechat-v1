@@ -1,1 +1,101 @@
 /**index.wxss**/
+.nav-bar{
+  display: flex;
+  align-items: center;
+  background-color:#13227a;
+  padding-top: 60rpx;
+  padding-bottom: 30rpx;
+  padding-left: 20rpx
+}
+.nav-icon{
+  width: 50rpx;
+  height: 50rpx;
+
+}
+.nav-text{
+  font-size: 34rpx;
+  font-weight: bold;
+  line-height: 48rpx;
+  color: white;
+  padding-left: 20rpx
+}
+.news-list{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: white;
+  background-color:#13227a;
+  padding-bottom: 16rpx
+}
+.newsCategory-text1{
+    display: flex;
+    font-weight: bold;
+    border-bottom:5px solid skyblue;
+    border-bottom-width:2px;
+}
+.newsCategory-text2{
+    display: flex;
+}
+.newsCategory-text3{
+    display: flex;
+}
+.newsCategory-text4{
+    display: flex;
+}
+.newsCategory-text5{
+    display: flex;
+}
+.newsCategory-text6{
+    display: flex;
+}
+.hotNews-wrapper{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom:200rpx; 
+  margin: 10rpx
+
+}
+.hotNews-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+}
+.hotNews-icon{
+  position: absolute;
+  top:20rpx;
+  right: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.hotNews-text{
+  position: relative;
+  top:150rpx;
+  padding:20rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+  color:white;
+
+
+}
+.hotNewsTips{
+  position: absolute;
+  bottom:0;
+  padding: 20rpx;
+  display: flex;
+  font-size: 26rpx;
+  line-height: 37rpx;
+  color: rgb(150, 150, 139);
+}
+.hotNewsTips-text{
+  position: relative;
+  margin-left: 10rpx
+}
+
+
