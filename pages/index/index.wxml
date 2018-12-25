@@ -1,65 +1,38 @@
 <view class='nav-bar'>
-  <image class='nav-icon' src='/images/nav-icon.png'></image>
-  <view class='nav-text'>快读·咨询</view>
+  <image class='nav-icon' src='/images/nav-icon-white.png'></image>
+  <view class='nav-text'>快读·资讯</view>
 </view>
-<view class='newsCategory-list'>
-  <view class='newsCategory-text1'>国内</view>
-  <view class='newsCategory-text2'>国际</view>
-  <view class='newsCategory-text2'>财经</view>
-  <view class='newsCategory-text3'>娱乐</view>
-  <view class='newsCategory-text4'>军事</view>
-  <view class='newsCategory-text5'>体育</view>
-  <view class='newsCategory-text6'>其他</view>
+<view class='newsNav'>
+  <radio-group class="newsNavgroup" bindchange="newsTypeSelect">
+    <view class='newsCategory-list'>
+      <view class="newsCategoryItem" wx:for="{{newsCategory}}" wx:key="value">
+        <radio id="{{item.name}}" hidden value="{{item.value}}" checked="{{item.checked}}"></radio>
+        <label class="label__text" for="{{item.name}}">
+          <text style="color:{{item.checked ?textWhite: textGrey}}; font-weight:{{item.checked ?textBold: textNormal}}">{{item.name}}</text>
+        </label>
+        <view class="label__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+      </view>
+    </view>
+  </radio-group>
 </view>
-<view class='hotNews-wrapper'>
-  <image class="hotNews-bg" src='/images/hotNews.png' mode='scaleToFill'></image>
-  <image class='hotNews-icon' src='/images/hot-icon-red.png' mode='aspectFit'></image>
-  <view class='hotNews-title'>观湖村陈先生：上北大车票是乡亲凑得，赠别墅遇尴尬两年没回乡</view>
-  <view class='hotNewsOrigin'>上旅游新闻 10:22 </view>
-</view>
-<scroll-view scroll-y style="height: 380px;">
-  <view class='news-list'>
-    <view class='news-item1'>
-      <view class='newsTips1'>
-        <view class='news-title1'>新起点，开启中国高质量发展新征程</view>
-        <view class='newsOrigin1'>新华网 21:09 </view>
-      </view>
-      <image class='news-image1' src='/images/temp1.png' mode='scaleToFill'></image>
-    </view>
-    <view class='news-item2'>
-      <view class='newsTips2'>
-        <view class='news-title2'>国务院深化减税降费政策：企业减税再出利好 全年减4000亿元</view>
-        <view class='newsOrigin2'>央视网 22:09 </view>
-      </view>
-      <image class='news-image2' src='/images/temp2.png' mode='scaleToFill'></image>
-    </view>
-    <view class='news-item3'>
-      <view class='newsTips3'>
-        <view class='news-title3'>商务部：中方有底气 有信心应对任何贸易投资保护主义的做法</view>
-        <view class='newsOrigin3'>新华网 21:09 </view>
-      </view>
-      <image class='news-image3' src='/images/temp3.png' mode='scaleToFill'></image>
-    </view>
-    <view class='news-item4'>
-      <view class='newsTips4'>
-        <view class='news-title4'>微软搜索再次进军中国市场</view>
-        <view class='newsOrigin4'>央视网 22:09 </view>
-      </view>
-      <image class='news-image4' src='/images/temp4.png' mode='scaleToFill'></image>
-    </view>
-    <view class='news-item5'>
-      <view class='newsTips5'>
-        <view class='news-title5'>庆祝改革开放40周年大会在北京隆重举行</view>
-        <view class='newsOrigin5'>新华网 20:42 </view>
-      </view>
-      <image class='news-image5' src='/images/temp5.png' mode='scaleToFill'></image>
-    </view>
-    <view class='news-item6'>
-      <view class='newsTips6'>
-        <view class='news-title6'>谷歌政策更新 Android开源项目将变得更开放</view>
-        <view class='newsOrigin6'>央视网 22:09 </view>
-      </view>
-      <image class='news-image6' src='/images/temp6.png' mode='scaleToFill'></image>
+<view class='ripple-wrapper' >
+  <view class='hotNews-wrapper' bind:tap="onTapShowDetail" data-news-id='{{news[0].id}}'>
+    <image class="hotNews-bg" src='{{news[0].firstImage}}' mode='scaleToFill'></image>
+    <image class='hotNews-icon' src='/images/hot-icon-red.png' mode='aspectFit'></image>
+    <view class='hotNewsTips'>
+      <view class='hotNews-title'>{{news[0].title}}</view>
+      <view class='hotNewsSubTitle'>{{news[0].newsSubTitle}}</view>
     </view>
   </view>
-</scroll-view>
+  <scroll-view scroll-y style='height:556rpx'>
+    <view class='news-list'>
+      <view class='news-item' wx:for='{{news}}' wx:if="{{index>0}}" wx:key="id" bind:tap="onTapShowDetail" data-news-id='{{item.id}}'>
+        <view class='newsTips'>
+          <view class='newsTitle'>{{item.title}}</view>
+          <view class='newsSubTitle'>{{item.newsSubTitle}} </view>
+        </view>
+        <image class='news-image' src='{{item.firstImage}}' mode='scaleToFill'></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>

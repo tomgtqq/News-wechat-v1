@@ -1,0 +1,17 @@
+<!--pages/detail/detail.wxml-->
+<view class='nav-bar' bind:tap="onTapNavBack">
+  <image class='nav-icon' src='/images/left-icon.png'></image>
+  <view class='nav-text'>快读·资讯</view>
+</view>
+<view class='newsTitle'>
+  <text class='title-text'>{{titleText}}</text>
+</view>
+<view class='newsTips'>
+  <view class='subTitle-text'>{{newsSubTitle}}</view>
+  <view class='read-text'>{{readCount}}</view>
+</view>
+<scroll-view scroll-y>
+  <view class='newsDetail'>
+  <rich-text nodes="{{nodes}}"></rich-text>
+  </view>
+</scroll-view>
