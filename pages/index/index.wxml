@@ -15,24 +15,22 @@
     </view>
   </radio-group>
 </view>
-<view class='ripple-wrapper' >
-  <view class='hotNews-wrapper' bind:tap="onTapShowDetail" data-news-id='{{news[0].id}}'>
-    <image class="hotNews-bg" src='{{news[0].firstImage}}' mode='scaleToFill'></image>
-    <image class='hotNews-icon' src='/images/hot-icon-red.png' mode='aspectFit'></image>
-    <view class='hotNewsTips'>
-      <view class='hotNews-title'>{{news[0].title}}</view>
-      <view class='hotNewsSubTitle'>{{news[0].newsSubTitle}}</view>
+<view class='hotNews-wrapper' bind:tap="onTapShowDetail" data-news-id='{{news[0].id}}'>
+  <image class="hotNews-bg" src='{{news[0].firstImage||"/images/default.png" }}' mode='scaleToFill'></image>
+  <image class='hotNews-icon' src='/images/hot-icon-red.png' mode='aspectFit'></image>
+  <view class='hotNewsTips'>
+    <view class='hotNews-title'>{{news[0].title}}</view>
+    <view class='hotNewsSubTitle'>{{news[0].newsSubTitle}}</view>
+  </view>
+</view>
+<scroll-view scroll-y style='height:556rpx'>
+  <view class='news-list'>
+    <view class='news-item' wx:for='{{news}}' wx:if="{{index>0}}" wx:key="id" bind:tap="onTapShowDetail" data-news-id='{{item.id}}'>
+      <view class='newsTips'>
+        <view class='newsTitle'>{{item.title}}</view>
+        <view class='newsSubTitle'>{{item.newsSubTitle}} </view>
+      </view>
+      <image class='news-image' src='{{item.firstImage||"/images/default.png"}}' mode='scaleToFill'></image>
     </view>
   </view>
-  <scroll-view scroll-y style='height:556rpx'>
-    <view class='news-list'>
-      <view class='news-item' wx:for='{{news}}' wx:if="{{index>0}}" wx:key="id" bind:tap="onTapShowDetail" data-news-id='{{item.id}}'>
-        <view class='newsTips'>
-          <view class='newsTitle'>{{item.title}}</view>
-          <view class='newsSubTitle'>{{item.newsSubTitle}} </view>
-        </view>
-        <image class='news-image' src='{{item.firstImage}}' mode='scaleToFill'></image>
-      </view>
-    </view>
-  </scroll-view>
-</view>
+</scroll-view>

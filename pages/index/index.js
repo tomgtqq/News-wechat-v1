@@ -50,7 +50,11 @@ Page({
         })
       },
       fail: res => {
-        console.log(res)
+        wx.showToast({
+          title: '失败',
+          icon: 'fail',
+          duration: 1500
+        })
       },
       complete: () => {
         callback && callback()
@@ -82,13 +86,7 @@ Page({
       url: '/pages/detail/detail?id=' + event.currentTarget.dataset.newsId
     })
   },
-  onPullDownRefresh() {
-    console.log('onPullDownRefresh')
-    this.getNews(() => {
-      wx.stopPullDownRefresh()
-    })
-  },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -121,6 +119,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.getNews(() => {
+      wx.stopPullDownRefresh()
+    })
 
   },
 

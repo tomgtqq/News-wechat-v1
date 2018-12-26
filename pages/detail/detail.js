@@ -41,7 +41,11 @@ Page({
         this.setNewsDetail(res)
       },
       fail: res => {
-        console.log(res)
+        wx.showToast({
+          title: '失败',
+          icon: 'fail',
+          duration: 1500
+        })
       },
       complete: () => {
         callback && callback()
@@ -91,12 +95,6 @@ Page({
   onTapNavBack() {
     wx.navigateBack({
       delta: 1
-    })
-  },
-
-  onPullDownRefresh() {
-    this.getNewsDetail(() => {
-      wx.stopPullDownRefresh()
     })
   },
 
