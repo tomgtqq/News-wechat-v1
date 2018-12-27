@@ -23,7 +23,6 @@
     <view class='hotNewsSubTitle'>{{news[0].newsSubTitle}}</view>
   </view>
 </view>
-<scroll-view scroll-y style='height:556rpx'>
   <view class='news-list'>
     <view class='news-item' wx:for='{{news}}' wx:if="{{index>0}}" wx:key="id" bind:tap="onTapShowDetail" data-news-id='{{item.id}}'>
       <view class='newsTips'>
@@ -33,4 +32,3 @@
       <image class='news-image' src='{{item.firstImage||"/images/default.png"}}' mode='scaleToFill'></image>
     </view>
   </view>
-</scroll-view>

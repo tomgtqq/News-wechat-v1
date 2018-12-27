@@ -102,6 +102,7 @@
   position: relative;
   width: 750rpx;
   height: 576rpx;
+  overflow: scroll;
 }
 
 .news-item {
